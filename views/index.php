@@ -101,6 +101,10 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+      .fondo{
+  background-image: url('../src/mates-index.jpg');
+  background-size: cover;
+      }
     </style>
 
     
@@ -110,49 +114,39 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
     </div>
     </div>
 <main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary"  style="background-image: url('../src/matesfondo.jpg');">
     <div class="col-md-6 p-lg-5 mx-auto my-5">
       <h1 class="display-3 fw-bold">Matoros</h1>
-      <h4 class="fw-normal text-muted mb-3">Los mejores mates, al mejor precio</h4>
+      <h4 class="fw-normal text-muted mb-3">Los mejores mates, al mejor precio.</h4>
       <div class="d-flex gap-3 justify-content-center lead fw-normal">
-        <a class="icon-link" href="#">
-          Learn more
-          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-        </a>
-        <a class="icon-link" href="#">
-          Buy
-          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-        </a>
       </div>
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
-  </div>
+    </div>
+  <div class="row">
   <?php
-
-while ($fila= mysqli_fetch_assoc($result)) {
-?>   
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5"><?php echo $fila["nombre"] ?><br></h2>
-        <p class="lead">$<?php echo $fila["precio"] ?></p>
+  while ($fila = mysqli_fetch_assoc($result)) {
+  ?>
+    <div class="col-md-4">
+      <div class="d-md-flex flex-md-equal w-200 my-md-3 ps-md-3">
+        <div class="text-bg-info me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="border-radius: 21px;">
+          <div class="my-3 py-3">
+            <h2 class="display-5"><?php echo $fila["nombre"] ?><br></h2>
+            <p class="lead">$<?php echo $fila["precio"] ?></p>
+          </div>
+          <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+            <?php
+            echo '<img class="card-img-top" src=" "' . base64_encode($fila["imagen"]) . '" alt="producto" />';
+            ?>
+          </div>
+        </div>
       </div>
-      <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-    <div class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-  </div>
+  <?php
+  }
+  ?>
+</div>
 </main>
-
-    </body>
-</html>
-<?php }?>
 
 <?php include ("footer.php");?>

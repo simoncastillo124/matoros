@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../src/font.css">
     <style>
       body{
-        background-image: url('../../src/mates.png');
+        background-image: url('../../src/mates.jpg');
         background-size: cover;
       }
       .slide-in-elliptic-bottom-fwd {
