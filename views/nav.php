@@ -67,6 +67,9 @@
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="iconify" data-icon="mdi:user-outline" data-width="35"></span></a>
           <div class="dropdown-menu" data-bs-theme="light">
+                    <a href="perfil.php" class="dropdown-item"><?php echo $_SESSION["name"] ?></a>
+          <div class="dropdown-divider">
+          </div>
             <a class="dropdown-item" href="perfil.php">Mi cuenta</a>
             <a class="dropdown-item" href="carrito.php">Carrito</a>
         </li>
