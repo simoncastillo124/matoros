@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
     <link href="../src/bootstrap.min.css" rel="stylesheet">
     <link href="../src/carrito/carrito.css" rel="stylesheet">
-    <script src="../src/color/color-modes.js"></script>
     <script src="../src/carrito/carrito.js"></script>
 
 
