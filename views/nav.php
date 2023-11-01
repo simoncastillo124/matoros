@@ -8,6 +8,7 @@
     <link href="../src/font.css" rel="stylesheet" id="font">
     <link rel="stylesheet" href="../src/navstyle.css">    
     <link rel="stylesheet" href="../src/docs.min.js">
+    <link rel="stylesheet" href="../src/navbar.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -24,7 +25,7 @@
         while ($fila= mysqli_fetch_assoc($result)){
         ?>
 
-<nav class="navbar navbar-expand navbar-dark bg-primary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-md navbar-primary fixed-top bg-primary" data-bs-theme="dark">
 <div class="navbar-nav mx-auto">
   <div class="container-fluid">
     <div class="collapse navbar-collapse">

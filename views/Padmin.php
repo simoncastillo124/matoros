@@ -62,7 +62,7 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
 <?php }?>
 </table>
 </div>
-    <script >
+    <script>
         // Obtén una referencia al botón y a la tabla
         var toggleButton = document.getElementById("toggleButton");
         var miTabla = document.getElementById("usuarios");
