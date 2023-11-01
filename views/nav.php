@@ -8,7 +8,7 @@
     <link href="../src/font.css" rel="stylesheet" id="font">
     <link rel="stylesheet" href="../src/navstyle.css">    
     <link rel="stylesheet" href="../src/docs.min.js">
-    <link rel="stylesheet" href="../src/navbar.css">
+    <link rel="stylesheet" href="../src/navbar/navbar.css">
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -81,6 +81,6 @@
   </div>
 </div>
 </nav>
-<div class="container">
+<div class="container" style="margin-top:70px">
 <br>
     <div class="row">

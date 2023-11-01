@@ -23,7 +23,6 @@ while ($row= mysqli_fetch_assoc($resul)){
     }
  }
 
-
 $sql="SELECT * FROM usuario";
 if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
 ?>
