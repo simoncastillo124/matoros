@@ -53,8 +53,8 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
 <td scope="row"><?php echo $fila["codigo_postal"] ?></td>
 <td scope="row"><?php echo $fila["usertype"] ?></td>
 <td>
-    <a href="forms/Ueditar.php?id=<?php echo $fila["ID"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
-    <a href="../logica/Cusuarios.php?id=<?php echo $fila["ID"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/forms/Ueditar.php?id=<?php echo $fila["ID"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/logica/Cusuarios.php?id=<?php echo $fila["ID"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
 </td>
 </tr>
 </tbody>

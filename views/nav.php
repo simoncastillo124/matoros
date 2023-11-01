@@ -37,32 +37,32 @@
           <h5>
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
           <div class="dropdown-menu" data-bs-theme="light">
-            <a class="dropdown-item" href="index.php">Todos los Productos</a>
-            <a class="dropdown-item" href="#">Equipo de mates</a>
-            <a class="dropdown-item" href="#">Mates</a>
-            <a class="dropdown-item" href="#">Bombillas</a>
-            <a class="dropdown-item" href="#">Bolsos</a>
-            <a class="dropdown-item" href="#">Yerberas</a>
-            <a class="dropdown-item" href="#">Yerba Mate</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php">Todos los Productos</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Equipo de mates</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Mates</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Bombillas</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Bolsos</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Yerberas</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/index.php?<?php $search="" ?>">Yerba Mate</a>
           </div>
           </h5>
         </li>
         <?php if($fila["usertype"]==1){ ?>
         <li class="nav-item">
-          <h5><a href="Padmin.php" class="nav-link">Panel de admin</a></h5>
+          <h5><a href="http://localhost/matoros/views/Padmin.php" class="nav-link">Panel de admin</a></h5>
         </li>
         <?php } ?>
         <li class="nav-item">
-          <h5><a href="#" class="nav-link">Quienes somos?</a></h5>
+          <h5><a href="http://localhost/matoros/views/" class="nav-link">Quienes somos?</a></h5>
         </li>
         <li class="nav-item">
-          <h5><a href="#" class="nav-link">Venta a empresas</a></h5>
+          <h5><a href="http://localhost/matoros/views/" class="nav-link">Venta a empresas</a></h5>
         </li>
         <li class="nav-item">
-        <h5><a href="#" class="nav-link">Como comprar</a></h5>
+        <h5><a href="http://localhost/matoros/views/" class="nav-link">Como comprar</a></h5>
         </li>
         <li class="nav-item">
-          <h5><a href="#" class="nav-link">Preguntas frecuentes</a></h5>
+          <h5><a href="http://localhost/matoros/views/" class="nav-link">Preguntas frecuentes</a></h5>
         </li>
         <?php }?>
         <li class="nav-item dropdown">
@@ -71,11 +71,11 @@
                     <a href="perfil.php" class="dropdown-item"><?php echo $_SESSION["name"] ?></a>
           <div class="dropdown-divider">
           </div>
-            <a class="dropdown-item" href="perfil.php">Mi cuenta</a>
-            <a class="dropdown-item" href="carrito.php">Carrito</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/perfil.php">Mi cuenta</a>
+            <a class="dropdown-item" href="http://localhost/matoros/views/carrito.php">Carrito</a>
         </li>
         <li class="nav-item">
-          <h5><a href="../logica/logout.php" class="nav-link end-0"><span class="iconify" data-icon="el:off" data-width="35"></a></h5>
+          <h5><a href="http://localhost/matoros/views/logica/logout.php" class="nav-link end-0"><span class="iconify" data-icon="el:off" data-width="35"></a></h5>
         </li>
         </div>
   </div>
