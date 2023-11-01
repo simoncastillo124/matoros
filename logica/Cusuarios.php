@@ -20,7 +20,6 @@ if (isset($_POST["password_r"])!=""){
         if($result-> num_rows>0){
             header("location: ../views/forms/register.php");
         }else{
-            mysqli_close($conx);
             var_dump($sql);
             //aca hacemos el insert
             $sql="INSERT INTO `usuario`( `username`, `password`, `email`, `telefono`, `domicilio`, `numero_domicilio`, `codigo_postal`, `usertype`) VALUES ('$username','$password','$email','$telefono','$calle','$callenum','$codigopostal','$usert')";
