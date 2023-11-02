@@ -35,9 +35,9 @@ $stmt->close();
 </head>    
 <body>
 <nav class="nav justify-content-center">
-    <a class="nav-link active" href="inicio.php"><h1>Inicio</h1></a>
+    <a class="nav-link active" href="http://localhost/matoros/views/index.php"><h1>Inicio</h1></a>
     <a class="nav-link" href="perfil.php"><span class="iconify" data-icon="mdi:user-circle" data-width="55"></span></a>
-    <a class="nav-link" href="cerrar-sesion.php"><span class="iconify" data-icon="uiw:logout" data-width="50"></span></a>
+    <a class="nav-link" href="http://localhost/matoros/views/logica/logout.php"><span class="iconify" data-icon="uiw:logout" data-width="50"></span></a>
 
 </nav>
 
