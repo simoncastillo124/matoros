@@ -81,7 +81,11 @@
 
                     <br>
                     <div class="text-center">
-                    <button type="submit" class="btn btn-warning">A matear</button>
+                    <button type="submit" class="btn btn-warning btn-lg">A matear</button>
+                    </div><br>
+
+                    <div class="text-center">
+                      <a class="btn btn-" href="register.php">No estas registrado?</a>
                     </div>
                     </form>
                     
