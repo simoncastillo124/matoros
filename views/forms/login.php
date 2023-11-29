@@ -81,6 +81,9 @@
 
                     <br>
                     <div class="text-center">
+                    <php if (isset($_GET["wep"])){ ?>
+                    <h2 class="danger"> usuario o contraseña erroneo</h2>  
+                    <?php  }?>
                     <button type="submit" class="btn btn-warning">A matear</button>
                     </div>
                     </form>

@@ -61,6 +61,46 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
 <?php }?>
 </table>
 </div>
+<?php
+
+   $sq="SELECT * FROM producto";
+if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
+?>
+<body>
+<div class="col col-md-12 text-center">
+<button class="btn btn-lg btn-info" id="eButton">Mostrar/Esconder producto</button>
+ <table class="table table-light table-bordered" id="producto" style="display: none; margin-top: 10px;">
+<thead>
+<tr>
+<td>Nombre</td>
+<td>quien lo agrego</td>
+<td>precio</td>
+<td>fecha de entrada</td>
+<td>stock</td>
+<td>tipo</td>
+<td>img</td>
+<td>Acción</td>
+</tr>
+</thead>
+<?php while ($fil= mysqli_fetch_assoc($resul)) { ?>
+<tbody>
+<tr>
+<td scope="row"><?php echo $fila["nombre"] ?></td>
+<td scope="row"><?php echo $fila["ID_usuario"] ?></td>
+<td scope="row"><?php echo $fila["precio"] ?></td>
+<td scope="row"><?php echo $fila["fecha_entrada"] ?></td>
+<td scope="row"><?php echo $fila["stock"] ?></td>
+<td scope="row"><?php echo $fila["tipo"] ?></td>
+<td scope="row"><?php echo $fila["imagen"] ?></td>
+<td>
+    <a href="http://localhost/matoros/views/forms/Ueditar.php?id=<?php echo $fila["ID"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/logica/Cusuarios.php?id=<?php echo $fila["ID"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
+</td>
+</tr>
+</tbody>
+<?php }?>
+</table>
+</div>
     <script>
         // Obtén una referencia al botón y a la tabla
         var toggleButton = document.getElementById("toggleButton");
@@ -77,5 +117,21 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
                 miTabla.style.display = "none";
             }
         });
-    </script>
+        //##############################################################################################################
+                // Obtén una referencia al botón y a la tabla
+        var eButton = document.getElementById("Button");
+        var Tabla = document.getElementById("producto");
+
+        // Agrega un evento de escucha al botón
+        eButton.addEventListener("click", function() {
+            // Verifica si la tabla está visible
+            if (Tabla.style.display === "none") {
+                // Si está oculta, muéstrala
+                Tabla.style.display = "table";
+            } else {
+                // Si está visible, ocúltala
+                Tabla.style.display = "none";
+            }
+        });
+        </script>
 <?php include("footer.php");?>

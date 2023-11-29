@@ -75,7 +75,7 @@
             <a class="dropdown-item" href="http://localhost/matoros/views/carrito.php">Carrito</a>
         </li>
         <li class="nav-item">
-          <h5><a href="http://localhost/matoros/views/logica/logout.php" class="nav-link end-0"><span class="iconify" data-icon="el:off" data-width="35"></a></h5>
+          <h5><a href="http://localhost/matoros/logica/logout.php" class="nav-link end-0"><span class="iconify" data-icon="el:off" data-width="35"></a></h5>
         </li>
         </div>
   </div>
