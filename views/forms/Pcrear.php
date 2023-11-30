@@ -7,10 +7,9 @@
     <?php
  include("../nav.php");
 
-    $id=$_GET["id"];
-        $sql="SELECT *,producto.ID as pid, usuario.ID as user_id FROM `producto` INNER JOIN usuario ON producto.ID_usuario=usuario.ID INNER JOIN tipos ON producto.tipo=tipos.id_tipo where producto.ID=$id";
+        $sql="SELECT * from tipos";
         if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
-        while ($fila= mysqli_fetch_assoc($result)){ 
+       
     ?>
     <link href="../../src/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="../../src/font.css" rel="stylesheet" id="bootstrap-css">
@@ -23,15 +22,15 @@
             <div class="card">
                 <div class="card-header text-center">
                     <div class="card-body">
-                        <form class="login" action="../../logica/Cproductos.php<?php if(!isset($_GET["id"])){echo "";}else{echo "?id=".$fila["ID"];}?>" method="post">
-                            <h2>Editar producto</h2>
+                        <form class="login" action="../../logica/Cproductos.php" method="post">
+                            <h2>Crear producto</h2>
                             <div class="row mb-3">
                                 <div class="col-2 input-group-prepend">
                                     <span class="input-group-text border-0"><iconify-icon icon="nimbus:mate" width="70" height="70"></iconify-icon></span>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="nombre" value="<?php echo $fila["nombre"] ?>" id="nombre" placeholder=" ">
+                                        <input type="text" class="form-control" name="nombre" value="" id="nombre" placeholder=" ">
                                         <label for="nombre">Nombre de producto</label>
                                     </div>
                                 </div>
@@ -43,7 +42,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="" value="<?php echo $fila["username"] ?>" id="user" placeholder=" ">
+                                        <input type="text" class="form-control" name="" value="" id="user" placeholder=" ">
                                         <label for="user">Usuario</label>
                                     </div>
                                 </div>
@@ -54,7 +53,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="number" class="form-control" name="precio" value="<?php echo $fila["precio"] ?>" id="precio" placeholder=" ">
+                                        <input type="number" class="form-control" name="precio" value="" id="precio" placeholder=" ">
                                         <label for="precio">Precio</label>
                                     </div>
                                 </div>
@@ -65,18 +64,18 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="stock" value="<?php echo $fila["stock"] ?>" id="stock" placeholder=" ">
+                                        <input type="text" class="form-control" name="stock" value="" id="stock" placeholder=" ">
                                         <label for="stock">stock</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-2 input-group-prepend">
-                                <span class="input-group-text border-0"> <?php echo '<img src = "data:image/png;base64,' . base64_encode($fila['imagen']) . '" width = "70px" height = "70px"/>' . '</td>'; ?></span>
+                                <span class="input-group-text border-0"></span>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control" name="imagen" value="" id="imagen" placeholder=""?>
+                                        <input type="file" accept="image/png, .jpeg, .jpg, image/gif" class="form-control" name="imagen" value="" id="imagen" placeholder="">
                                         <label for="imagen">Imagen</label>
                                     </div>
                                 </div>
@@ -86,16 +85,16 @@
                                 <div class="col-2 input-group-prepend">
                                     <span class="input-group-text border-0"><iconify-icon icon="mdi:stanley-knife" width="70" height="70"></iconify-icon></span>
                                 </div>
-                                    <?php  ?>
                                         <label for="usert">Tipo de producto</label>
                                         <select class="form-control" name="producttype" id="usert">
-                                           <?php  echo "<option value='" .$fila["id_tipo"]."'>". $fila["type"]. "</option>" ?>
+                                        <?php  while ($fila= mysqli_fetch_assoc($result)){ ?> 
+                                        <?php  echo "<option value='" .$fila["id_tipo"]."'>". $fila["type"]. "</option>" ?>
+                                        <?php } ?>
                                         </select>
-                                    <?php } ?>
                                 </div>
                             <br>
                             <div class="d-grid gap-2">
-                                    <button class="btn btn-lg btn-success" type="submit">Editar</button>
+                                    <button class="btn btn-lg btn-success" type="submit">Crear</button>
                             </div>
                         </form>
                     </div>

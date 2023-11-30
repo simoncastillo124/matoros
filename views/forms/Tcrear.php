@@ -6,10 +6,7 @@
     <title>editar</title>
     <?php
  include("../nav.php");
-    $id=$_GET["id"];
-        $sql="SELECT * FROM `tipos`";
-        if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
-        while ($fila= mysqli_fetch_assoc($result)){
+
     ?>
     <link href="../../src/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="../../src/font.css" rel="stylesheet" id="bootstrap-css">
@@ -22,19 +19,18 @@
             <div class="card">
                 <div class="card-header text-center">
                     <div class="card-body">
-                        <form class="login" action="../../logica/Ctipo.php?id=<?php echo $fila["id_tipo"] ?>" method="post">
-                            <h2>Editar tipo de producto</h2>
+                        <form class="login" action="../../logica/Ctipo.php" method="post">
+                            <h2>Agregar tipo de producto</h2>
                             <div class="row mb-3">
                                 <div class="col-2 input-group-prepend">
                                     <span class="input-group-text border-0"><iconify-icon icon="nimbus:mate" width="70" height="70"></iconify-icon></span>
                                 </div>
                                 <div class="col">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="nombre" value="<?php echo $fila["type"] ?>" id="nombre" placeholder=" ">
+                                        <input type="text" class="form-control" name="nombre" value="" id="nombre" placeholder=" ">
                                         <label for="nombre">tipo de producto</label>
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
                         </form>
                         </body>

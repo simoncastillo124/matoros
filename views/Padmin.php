@@ -94,7 +94,8 @@ if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
 <td scope="row"><?php echo '<img src = "data:image/png;base64,' . base64_encode($fil['imagen']) . '" width = "50px" height = "50px"/>'
       . '</td>'; ?></td>
 <td>
-    <a href="http://localhost/matoros/views/forms/Peditar.php?id=<?php echo $fil["pid"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/forms/Pcrear.php"><button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h5V4h6v5h5v6h-5v5H9v-5H4V9m7 4v5h2v-5h5v-2h-5V6h-2v5H6v2h5Z"/></svg></button></a>
+    <a href="http://localhost/matoros/views/forms/Peditar.php?id=<?php echo $fil["pid"] ?>"><button  type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
     <a href="http://localhost/matoros/logica/Cproductos.php?id=<?php echo $fil["pid"] ?>&delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
 </td>
 </tr>
@@ -125,8 +126,9 @@ if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
 <td scope="row"><?php echo $row["id_tipo"] ?></td>
 <td scope="row"><?php echo $row["type"] ?></td>
 <td>
+    <a href="http://localhost/matoros/views/forms/Tcrear.php"><button type="button" class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h5V4h6v5h5v6h-5v5H9v-5H4V9m7 4v5h2v-5h5v-2h-5V6h-2v5H6v2h5Z"/></svg></button></a>
     <a href="http://localhost/matoros/views/forms/Teditar.php?id=<?php echo $row["id_tipo"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
-    <a href="http://localhost/matoros/views/logica/Ctipo.php?id=<?php echo $row["id_tipo"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/logica/Ctipo.php?id=<?php echo $row["id_tipo"] ?>&delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
 </td>
 </tr>
 </tbody>

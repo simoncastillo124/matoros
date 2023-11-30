@@ -52,7 +52,7 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
           </div>
           <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
           <?php 
-          echo '<img src = "data:image/png;base64,' . base64_encode($fila['imagen']) . '" width = "400px" height = "300px"/>'. '</td>'; ?>
+          echo '<img src = "data:image/png;base64,' . base64_encode($fila['imagen']) . '" width = "300px" height = "300px"/>'. '</td>'; ?>
           </div>
         </div>
       </div>

@@ -8,10 +8,32 @@ isset($_POST["stock"])? $stock=$_POST["stock"]:$stock="";
 isset($_POST["callenum"])? $callenum=$_POST["callenum"]:$callenum="";
 isset($_POST["imagen"])? $imagen=$_POST["imagen"]:$imagen="";
 isset($_POST["producttype"])? $producttype=$_POST["producttype"]:$producttype="";
+//check de las variables
 
 
+//borrar
+if (isset($_GET["delete"]) && is_numeric($_GET["delete"])) {
+    $id = $_GET["id"];
 
+    // Validate and sanitize $id here...
 
+    $sql = "DELETE FROM producto WHERE ID = ?";
+    $stmt = mysqli_prepare($conx, $sql);
+
+    if ($stmt) {
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conx);
+        header("location: ../views/Padmin.php");
+        exit();
+    } else {
+        echo "Error in prepared statement: " . mysqli_error($conx);
+    }
+}
+    var_dump($sql);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // aca se hace la carga de un producto
 if (!isset($_get["id"])) {
     //aca hacemos el insert
@@ -20,9 +42,22 @@ if (!isset($_get["id"])) {
     }else{
 
     
-    $sql="INSERT INTO producto (nombre, ID_usuario, precio, stock, imagen, tipo) VALUES ('$nombre', $user, $precio, $stock, '$imagen', $producttype)";
-    mysqli_query($conx,$sql);
-    mysqli_close($conx);
+        $sql = "INSERT INTO producto (nombre, ID_usuario, precio, stock, imagen, tipo) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = mysqli_prepare($conx, $sql);
+        
+        if ($stmt) {
+            // Assuming $imagen contains your image data
+            mysqli_stmt_bind_param($stmt, "sdisss", $nombre, $user, $precio, $stock, $imagen, $producttype);
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
+        
+            // Redirect to the desired location
+            header("location: ../views/index.php");
+            exit();
+        } else {
+            echo "Error in prepared statement: " . mysqli_error($conx);
+        }
+        mysqli_close($conx);
     header("location: ../views/index.php");
     }
     //aca abajo esta el codigo para borrar y o editar producto
@@ -31,30 +66,38 @@ if(isset($_GET["id"])){
 
     $id=$_GET["id"];
 
-    if (isset($_GET["delete"])==1){
-        $sql="DELETE FROM producto WHERE id=$id";
-        mysqli_query($conx,$sql);
-        mysqli_close($conx);
-        header("location: ../views/Padmin.php");
-        var_dump($sql);}
-
     if (!isset($_get["delete"])==1){
-
-        $sql="UPDATE producto
-            SET 
-              ID = $id,
-              nombre = '$nombre',
-              precio = $precio,
-              stock = $stock,
-              ID_usuario = $user,
-              imagen = '$imagen',
-              tipo = $producttype
-            WHERE ID = $id;
-            ";
-            mysqli_query($conx,$sql);
+        $bmpStr = file_get_contents($imagen);   
+        $hexStr = bin2hex($bmpStr);
+        $hexArray = str_split($hexStr);
+    
+        // Update SQL using prepared statement
+        $sql = "UPDATE producto
+                SET 
+                  nombre = ?,
+                  precio = ?,
+                  stock = ?,
+                  ID_usuario = ?,
+                  imagen = ?,
+                  tipo = ?
+                WHERE ID = ?";
+    
+        $stmt = mysqli_prepare($conx, $sql);
+    
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "sdisssi", $nombre, $precio, $stock, $user, $hexArray, $producttype, $id);
+            mysqli_stmt_execute($stmt);
+    
+            mysqli_stmt_close($stmt);
             mysqli_close($conx);
+    
             header("location: ../views/index.php");
+            exit();
+        } else {
+            echo "Error in prepared statement: " . mysqli_error($conx);
         }
+    }
+
         
 
 
@@ -62,6 +105,6 @@ if(isset($_GET["id"])){
 }else{
     echo("algo anda mal");
 }
-
+}
 
 ?>
