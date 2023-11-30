@@ -85,7 +85,7 @@
                     </div><br>
 
                     <div class="text-center">
-                      <a class="btn btn-" href="register.php">No estas registrado?</a>
+
                     </div>
                     </form>
                     
