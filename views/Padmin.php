@@ -62,8 +62,8 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
 </table>
 </div>
 <?php
-
-   $sq="SELECT * FROM producto";
+// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+$sq="SELECT *,producto.id as pid FROM `producto` INNER JOIN usuario ON producto.ID_usuario=usuario.ID INNER JOIN tipos ON producto.tipo=tipos.id_tipo;";
 if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
 ?>
 <body>
@@ -85,22 +85,70 @@ if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
 <?php while ($fil= mysqli_fetch_assoc($resul)) { ?>
 <tbody>
 <tr>
-<td scope="row"><?php echo $fila["nombre"] ?></td>
-<td scope="row"><?php echo $fila["ID_usuario"] ?></td>
-<td scope="row"><?php echo $fila["precio"] ?></td>
-<td scope="row"><?php echo $fila["fecha_entrada"] ?></td>
-<td scope="row"><?php echo $fila["stock"] ?></td>
-<td scope="row"><?php echo $fila["tipo"] ?></td>
-<td scope="row"><?php echo $fila["imagen"] ?></td>
+<td scope="row"><?php echo $fil["nombre"] ?></td>
+<td scope="row"><?php echo $fil["username"] ?></td>
+<td scope="row"><?php echo $fil["precio"] ?></td>
+<td scope="row"><?php echo $fil["fecha_entrada"] ?></td>
+<td scope="row"><?php echo $fil["stock"] ?></td>
+<td scope="row"><?php echo $fil["type"] ?></td>
+<td scope="row"><?php echo '<img src = "data:image/png;base64,' . base64_encode($fil['imagen']) . '" width = "50px" height = "50px"/>'
+      . '</td>'; ?></td>
 <td>
-    <a href="http://localhost/matoros/views/forms/Ueditar.php?id=<?php echo $fila["ID"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
-    <a href="http://localhost/matoros/views/logica/Cusuarios.php?id=<?php echo $fila["ID"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/forms/Peditar.php?id=<?php echo $fil["pid"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/logica/Cproductos.php?id=<?php echo $fil["pid"] ?>&delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
 </td>
 </tr>
 </tbody>
 <?php }?>
 </table>
 </div>
+<!-- aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -->
+
+<?php
+$sq="SELECT * FROM tipos";
+if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
+?>
+<body>
+<div class="col col-md-12 text-center">
+<button class="btn btn-lg btn-info" id="eBu">Mostrar/Esconder categorias</button>
+ <table class="table table-light table-bordered" id="tipo" style="display: none; margin-top: 10px;">
+<thead>
+<tr>
+<td>id</td>
+<td>nombre</td>
+<td>acciones</td>
+</tr>
+</thead>
+<?php while ($row= mysqli_fetch_assoc($resul)) { ?>
+<tbody>
+<tr>
+<td scope="row"><?php echo $row["id_tipo"] ?></td>
+<td scope="row"><?php echo $row["type"] ?></td>
+<td>
+    <a href="http://localhost/matoros/views/forms/Teditar.php?id=<?php echo $row["id_tipo"] ?>"><button href= type="button" class="btn btn-success"><span class="iconify" data-icon="material-symbols:edit-outline" style="color: white;"></span></button></a>
+    <a href="http://localhost/matoros/views/logica/Ctipo.php?id=<?php echo $row["id_tipo"] ?>& delete=1 "><button type="button" class="btn btn-danger"><span class="iconify" data-icon="ph:trash" style="color: white;"></span></button></a>
+</td>
+</tr>
+</tbody>
+<?php }?>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         // Obtén una referencia al botón y a la tabla
         var toggleButton = document.getElementById("toggleButton");
@@ -119,7 +167,7 @@ if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
         });
         //##############################################################################################################
                 // Obtén una referencia al botón y a la tabla
-        var eButton = document.getElementById("Button");
+        var eButton = document.getElementById("eButton");
         var Tabla = document.getElementById("producto");
 
         // Agrega un evento de escucha al botón
@@ -131,6 +179,22 @@ if(!$resul= mysqli_query($conx,$sq)) die("consulta fallida");
             } else {
                 // Si está visible, ocúltala
                 Tabla.style.display = "none";
+            }
+        });
+         //##############################################################################################################
+         // Obtén una referencia al botón y a la tabla
+        var eBu = document.getElementById("eBu");
+        var Ta = document.getElementById("tipo");
+
+        // Agrega un evento de escucha al botón
+        eBu.addEventListener("click", function() {
+            // Verifica si la ta está visible
+            if (Ta.style.display === "none") {
+                // Si está oculta, muéstrala
+                Ta.style.display = "table";
+            } else {
+                // Si está visible, ocúltala
+                Ta.style.display = "none";
             }
         });
         </script>

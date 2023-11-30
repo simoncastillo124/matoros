@@ -51,9 +51,8 @@ if(!$result= mysqli_query($conx,$sql)) die("consulta fallida");
             <p class="lead">$<?php echo $fila["precio"] ?></p>
           </div>
           <div class="bg-body-tertiary shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
-            <?php
-            echo '<img class="card-img-top" src=" "' . base64_encode($fila["imagen"]) . '" alt="producto" />';
-            ?>
+          <?php 
+          echo '<img src = "data:image/png;base64,' . base64_encode($fila['imagen']) . '" width = "400px" height = "300px"/>'. '</td>'; ?>
           </div>
         </div>
       </div>
